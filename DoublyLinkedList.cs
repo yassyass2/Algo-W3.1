@@ -85,7 +85,6 @@ public class DoublyLinkedList<T> : IDoublyLinkedList<T> where T : IComparable<T>
         // check Next
         // check First
         // check Last
-        if (First == null) return true;
 
         if (node.Previous != null){
             node.Previous.Next = node.Next;
