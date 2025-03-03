@@ -51,6 +51,7 @@ public class DoublyLinkedList<T> : IDoublyLinkedList<T> where T : IComparable<T>
     {
         if(First == null || First.Value.CompareTo(value) > 0){
             AddFirst(value);
+            return;
         }
 
         var node = new DoubleNode<T>(value);
