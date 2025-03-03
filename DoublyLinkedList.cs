@@ -73,7 +73,10 @@ public class DoublyLinkedList<T> : IDoublyLinkedList<T> where T : IComparable<T>
 
     public bool Remove(T value)
     {
-        throw new NotImplementedException();
+        var node = Search(value);
+        if (node == default) return false;
+        Delete(value);
+        return true;
     }
 
     public void Delete(DoubleNode<T> node)
@@ -82,8 +85,21 @@ public class DoublyLinkedList<T> : IDoublyLinkedList<T> where T : IComparable<T>
         // check Next
         // check First
         // check Last
-        throw new NotImplementedException();
-     
+        if (First == null) return true;
+
+        if (node.Previous != null){
+            node.Previous.Next = node.Next;
+        }
+        if (node.Next != null){
+            node.Next.Previous = node.Previous;
+        }
+
+        if (node == First){
+            First = node.Next;
+        }
+        if (node == Last){
+            Last = node.Previous;
+        }
     }
 
     public IEnumerator<T> GetEnumerator()
