@@ -28,7 +28,7 @@ public class DoublyLinkedList<T> : IDoublyLinkedList<T> where T : IComparable<T>
     public void AddFirst(T value)
     {
         var newNode = new DoubleNode<T>(value, First);
-        if (first == null){
+        if (First == null){
             First = Last = newNode;
             return;
         }
@@ -75,7 +75,7 @@ public class DoublyLinkedList<T> : IDoublyLinkedList<T> where T : IComparable<T>
     {
         var node = Search(value);
         if (node == default) return false;
-        Delete(value);
+        Delete(node);
         return true;
     }
 
